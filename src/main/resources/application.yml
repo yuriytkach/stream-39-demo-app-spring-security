@@ -1,0 +1,30 @@
+app:
+  exchange-rate:
+    deviation-percentage: 10
+  security:
+    status-currencies:
+      REGULAR: USD, EUR
+      PAID: USD, EUR, GBP, UAH
+      VIP: USD, EUR, GBP, UAH, CHF, CNY
+
+logging:
+  level:
+    org.springframework.security: "TRACE"
+    com.yuriytkach: "DEBUG"
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db
+    username: dbuser
+    password: password
+  sql:
+    init:
+      platform: postgres
+      mode: always
+  jpa:
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+      hibernate.jdbc.lob.non_contextual_creation: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
