@@ -15,7 +15,7 @@ public class StatusCurrencySecurityEvaluator {
 
   public boolean hasAccessToCurrencies(final Authentication authentication, final Currency from, final Currency to) {
     return authentication.getAuthorities().stream()
-      .map(authority -> ClientStatus.valueOf(authority.getAuthority()))
+      .flatMap(authority -> ClientStatus.fromString(authority.getAuthority()).stream())
       .map(securityProperties.getStatusCurrencies()::get)
       .anyMatch(currencies -> currencies.contains(from) && currencies.contains(to));
   }

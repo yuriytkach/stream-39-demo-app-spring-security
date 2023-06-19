@@ -35,26 +35,47 @@ Get the list of supported currencies:
 curl http://localhost:8080/forex/currencies
 ```
 
+## Simple API Key
+
 Get the exchange rate using general simple `x-api-key`:
 
 ```shell
-curl -H 'x-api-key: valid-key' http://localhost:8080/forex/rate?from=USD&to=EUR
+curl 'http://localhost:8080/forex?from=USD&to=EUR' -H 'x-api-key: valid-key'
 ```
+
+## Client API Key
 
 Get the exchange rate using client's key `x-client-api-key`:
 
 ```shell
-curl -H 'x-client-api-key: key1' http://localhost:8080/forex/rate?from=USD&to=EUR
-curl -H 'x-client-api-key: key3' http://localhost:8080/forex/rate?from=USD&to=UAH
-curl -H 'x-client-api-key: key4' http://localhost:8080/forex/rate?from=USD&to=CHF
+curl 'http://localhost:8080/forex?from=USD&to=EUR' -H 'x-client-api-key: key1'
+curl 'http://localhost:8080/forex?from=USD&to=UAH' -H 'x-client-api-key: key3'
+curl 'http://localhost:8080/forex?from=USD&to=CHF' -H 'x-client-api-key: key4'
 ```
 
+## JWT Authentication
+
+First, obtain the JWT token by supplying username and password in JSON format to the auth endpoint:
+
+```shell
+curl -X POST http://localhost:8080/auth -H 'Content-Type: application/json' \
+-d '{"username": "user1", "password": "qwerty"}'
+```
+
+Then use the received token to access the protected endpoint:
+
+```shell
+curl 'http://localhost:8080/forex?from=USD&to=EUR' -H 'Authorization: Bearer <jwt token>'
+```
+
+JWT token is valid for 2 minutes. This can be changed in `application.yml` file.
 
 ### Reference Documentation
 For further reference, please consider the following sections:
 
 * [Spring Security](https://docs.spring.io/spring-boot/docs/3.1.0/reference/htmlsingle/#web.security)
 * [Spring Data JPA](https://docs.spring.io/spring-boot/docs/3.1.0/reference/htmlsingle/#data.sql.jpa-and-spring-data)
+* [JWT.io](https://jwt.io/)
 
 ### Guides
 The following guides illustrate how to use some features concretely:

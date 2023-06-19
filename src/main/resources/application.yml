@@ -7,6 +7,10 @@ app:
       PAID: USD, EUR, GBP, UAH
       VIP: USD, EUR, GBP, UAH, CHF, CNY
 
+  jwt:
+    signing-secret: hello
+    token-duration: PT2M
+
 logging:
   level:
     org.springframework.security: "TRACE"
@@ -26,5 +30,5 @@ spring:
       hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
       hibernate.jdbc.lob.non_contextual_creation: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true

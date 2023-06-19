@@ -25,6 +25,8 @@ dependencies {
 	implementation 'org.postgresql:postgresql'
 	implementation 'io.hypersistence:hypersistence-utils-hibernate-62:3.4.1'
 
+	implementation 'com.auth0:java-jwt:3.18.2'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation 'org.mockito:mockito-inline:5.2.0'
