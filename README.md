@@ -1,5 +1,5 @@
-# Demo Project for Online Stream #39 - Spring Security
-Demo project for online YouTube stream #39 about Spring Security
+# Demo Project for Online Stream #39-40 - Spring Security
+Demo project for online YouTube stream #39 and #40 about Spring Security
 
 ## Access to Online Stream on YouTube
 
